@@ -1,0 +1,15 @@
+@startuml
+actor Felhasznalo as User
+actor Admin
+
+User -> (Regisztracio)
+User -> (Bejelentkezes)
+User -> (Termekek Megtekintese)
+User -> (Kosarba Helyezes)
+User -> (Rendeles Leadása)
+
+Admin -> (Termek Hozzaadasa)
+Admin -> (Termek Frissitese)
+Admin -> (Rendeles Kezelese)
+
+@enduml

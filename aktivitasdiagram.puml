@@ -1,0 +1,26 @@
+@startuml
+|Felhasznalo|
+start
+:Bejelentkezes;
+:Termekek Kivalasztasa;
+:Kosarba Helyezes;
+
+|Kosar|
+:Kosar Ellenorzese;
+:Vegosszeg Szamitas;
+
+|Felhasznalo|
+if (Rendelés Leadása?) then (igen)
+    :Rendelés Leadása;
+    |Rendeles|
+    :Fizetési Mód Kiválasztása;
+    :Fizetés Végrehajtása;
+    :Rendelés Státusz Frissítése;
+else (nem)
+    stop
+endif
+
+|Felhasznalo|
+:Visszaigazoló Email Fogadása;
+stop
+@enduml

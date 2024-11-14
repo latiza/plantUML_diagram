@@ -1,0 +1,51 @@
+@startuml
+class Felhasznalo {
+    - felhasznalonev: String
+    - jelszo: String
+    - email: String
+    - cim: String
+    + regisztracio()
+    + bejelentkezes()
+    + kosarbaRak()
+}
+
+class Termek {
+    - nev: String
+    - ar: Float
+    - leiras: String
+    - keszlet: Int
+    + keszletEllenorzes()
+    + kedvezmenyAlkalmaz()
+}
+
+class Kosar {
+    - termekek: List<Termek>
+    - vegosszeg: Float
+    + hozzaadTermek()
+    + torolTermek()
+    + vegosszegKiszamitas()
+}
+
+class Rendeles {
+    - rendelesId: Int
+    - statusz: String
+    - rendelesDatuma: Date
+    + rendelesVeglegesitese()
+    + fizetes()
+    + szallitasiIdoSzamitas()
+}
+
+class Admin {
+    - adminNev: String
+    - jelszo: String
+    + termekHozzaadasa()
+    + termekModositasa()
+    + rendelesKezelese()
+}
+
+Felhasznalo "1" -- "*" Rendeles : rendel
+Kosar "1" -- "*" Termek : tartalmaz
+Felhasznalo "1" -- "1" Kosar : tartozik
+Admin "1" -- "*" Termek : kezel
+
+@enduml
